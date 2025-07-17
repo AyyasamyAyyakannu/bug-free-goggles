@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Automation Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .connection-line {
+            position: absolute;
+            background: linear-gradient(45deg, #9ca3af, #6b7280);
+            border-radius: 2px;
+            z-index: 1;
+        }
+        
+        .data-engine-center {
+            background: radial-gradient(circle at center, #1f2937 0%, #374151 50%, #4b5563 80%, #6b7280 100%);
+            box-shadow: 
+                0 0 0 8px rgba(75, 85, 99, 0.3),
+                0 0 0 16px rgba(75, 85, 99, 0.2),
+                0 0 0 24px rgba(75, 85, 99, 0.1),
+                0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .module-card {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 2px solid #e5e7eb;
+        }
+
+        .billing-automation-bg {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 50%, #fecaca 100%);
+        }
+
+        .monetization-bg {
+            background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 50%, #bfdbfe 100%);
+        }
+
+        .cpq-bg {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 50%, #fecaca 100%);
+        }
+
+        .platform-bg {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 50%, #fecaca 100%);
+        }
+
+        /* Connection lines positioning */
+        .line-top-left {
+            width: 120px;
+            height: 3px;
+            top: 50%;
+            left: -60px;
+            transform: translateY(-50%) rotate(-25deg);
+            transform-origin: right center;
+        }
+
+        .line-left {
+            width: 140px;
+            height: 3px;
+            top: 50%;
+            left: -70px;
+            transform: translateY(-50%);
+        }
+
+        .line-bottom-left {
+            width: 120px;
+            height: 3px;
+            top: 50%;
+            left: -60px;
+            transform: translateY(-50%) rotate(25deg);
+            transform-origin: right center;
+        }
+
+        .line-top-right {
+            width: 120px;
+            height: 3px;
+            top: 50%;
+            right: -60px;
+            transform: translateY(-50%) rotate(25deg);
+            transform-origin: left center;
+        }
+
+        .line-right {
+            width: 140px;
+            height: 3px;
+            top: 50%;
+            right: -70px;
+            transform: translateY(-50%);
+        }
+
+        .line-bottom-right {
+            width: 120px;
+            height: 3px;
+            top: 50%;
+            right: -60px;
+            transform: translateY(-50%) rotate(-25deg);
+            transform-origin: left center;
+        }
+
+        .line-bottom {
+            width: 3px;
+            height: 80px;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 1024px) {
+            .connection-line {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen p-4">
+    <div class="max-w-7xl mx-auto">
+        <!-- Main Grid Container -->
+        <div class="relative grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
+            
+            <!-- Left Column -->
+            <div class="space-y-8">
+                <!-- Billing Automation -->
+                <div class="module-card billing-automation-bg rounded-3xl p-6 lg:p-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                            <div class="w-4 h-4 bg-red-500 rounded"></div>
+                        </div>
+                        <h2 class="text-2xl lg:text-3xl font-bold text-red-600">Billing Automation</h2>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-white border border-gray-200 rounded-full px-4 py-3 text-center">
+                            <span class="text-sm font-semibold text-gray-700">Recurring Billing</span>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-full px-4 py-3 text-center">
+                            <span class="text-sm font-semibold text-gray-700">Quotes</span>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-full px-4 py-3 text-center">
+                            <span class="text-sm font-semibold text-gray-700">Usage Billing</span>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-full px-4 py-3 text-center">
+                            <span class="text-sm font-semibold text-gray-700">Invoicing</span>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-full px-4 py-3 text-center">
+                            <span class="text-sm font-semibold text-gray-700">Subscriptions</span>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-full px-4 py-3 text-center">
+                            <span class="text-sm font-semibold text-gray-700">Payments</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monetization -->
+                <div class="module-card monetization-bg rounded-3xl p-6 lg:p-8">
+                    <h3 class="text-xl lg:text-2xl font-bold text-gray-800 mb-6">Monetization</h3>
+                    <div class="grid grid-cols-1 gap-3">
+                        <div class="bg-white border border-gray-200 rounded-full px-4 py-3 text-center">
+                            <span class="text-sm font-semibold text-gray-700">Entitlements & Provisioning</span>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-full px-4 py-3 text-center">
+                            <span class="text-sm font-semibold text-gray-700">Auto Upgrades & Renewals</span>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-full px-4 py-3 text-center">
+                            <span class="text-sm font-semibold text-gray-700">Price Testing</span>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-full px-4 py-3 text-center">
+                            <span class="text-sm font-semibold text-gray-700">Optimized Checkout</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Column - Data Engine -->
+            <div class="flex justify-center items-center lg:py-20">
+                <div class="relative">
+                    <div class="data-engine-center w-48 h-48 lg:w-56 lg:h-56 rounded-full flex items-center justify-center text-white text-xl lg:text-2xl font-bold z-10 relative">
+                        <div class="text-center">
+                            <div>Data</div>
+                            <div>Engine</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Connection Lines (Desktop only) -->
+                    <div class="hidden lg:block">
+                        <div class="connection-line line-top-left"></div>
+                        <div class="connection-line line-left"></div>
+                        <div class="connection-line line-bottom-left"></div>
+                        <div class="connection-line line-top-right"></div>
+                        <div class="connection-line line-right"></div>
+                        <div class="connection-line line-bottom-right"></div>
+                        <div class="connection-line line-bottom"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="space-y-8">
+                <!-- CPQ -->
+                <div class="module-card cpq-bg rounded-3xl p-6 lg:p-8">
+                    <h2 class="text-2xl lg:text-3xl font-bold text-red-600 mb-6">CPQ</h2>
+                    <div class="space-y-3">
+                        <div class="bg-white border border-gray-200 rounded-full px-4 py-3 text-center">
+                            <span class="text-sm font-semibold text-gray-700">Chargebee CPQ</span>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-full px-4 py-3 text-center">
+                            <span class="text-sm font-semibold text-gray-700">CPQ for Salesforce</span>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-full px-4 py-3 text-center">
+                            <span class="text-sm font-semibold text-gray-700">Native integrations</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Retention & Growth -->
+                <div class="module-card cpq-bg rounded-3xl p-6 lg:p-8">
+                    <h2 class="text-xl lg:text-2xl font-bold text-red-600 mb-6">Retention & Growth</h2>
+                    <div class="space-y-3">
+                        <div class="bg-white border border-gray-200 rounded-full px-4 py-3 text-center">
+                            <span class="text-sm font-semibold text-gray-700">Churn Prediction</span>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-full px-4 py-3 text-center">
+                            <span class="text-sm font-semibold text-gray-700">Churn Deflection</span>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-full px-4 py-3 text-center">
+                            <span class="text-sm font-semibold text-gray-700">Lifecycle Offers</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RevRec -->
+                <div class="module-card cpq-bg rounded-3xl p-6 lg:p-8">
+                    <h2 class="text-xl lg:text-2xl font-bold text-red-600 mb-6">RevRec</h2>
+                    <div class="space-y-3">
+                        <div class="bg-white border border-gray-200 rounded-full px-4 py-3 text-center">
+                            <span class="text-sm font-semibold text-gray-700">A/R Subledger</span>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-full px-4 py-3 text-center">
+                            <span class="text-sm font-semibold text-gray-700">Revenue Recognition</span>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-full px-4 py-3 text-center">
+                            <span class="text-sm font-semibold text-gray-700">Close Automation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Platform Section (Bottom) -->
+        <div class="mt-12 lg:mt-16">
+            <div class="module-card platform-bg rounded-3xl p-6 lg:p-8">
+                <h2 class="text-2xl lg:text-3xl font-bold text-red-600 mb-6">Platform</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white border border-gray-200 rounded-full px-6 py-4 text-center">
+                        <span class="text-sm font-semibold text-gray-700">Platform Connectors & SPIs</span>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-full px-6 py-4 text-center">
+                        <span class="text-sm font-semibold text-gray-700">Extensible Objects, APIs & Events</span>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-full px-6 py-4 text-center">
+                        <span class="text-sm font-semibold text-gray-700">60+ Out-of-the-box integration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div class="absolute top-4 right-4 hidden lg:block">
+            <div class="w-12 h-12 bg-orange-400 rounded-full opacity-60"></div>
+        </div>
+    </div>
+
+    <script>
+        // Add interactive functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const featureTags = document.querySelectorAll('.bg-white.border');
+            
+            featureTags.forEach(tag => {
+                tag.classList.add('cursor-pointer', 'transition-all', 'duration-200', 'hover:shadow-md', 'hover:-translate-y-1');
+                
+                tag.addEventListener('click', function() {
+                    this.classList.add('scale-95');
+                    setTimeout(() => {
+                        this.classList.remove('scale-95');
+                    }, 150);
+                });
+
+                // Keyboard navigation
+                tag.setAttribute('tabindex', '0');
+                tag.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+
+            // Entrance animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('animate-fade-in');
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.module-card').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+
+    <style>
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fade-in 0.6s ease forwards;
+        }
+    </style>
+</body>
+</html>
